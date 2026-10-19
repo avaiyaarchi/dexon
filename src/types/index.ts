@@ -32,7 +32,7 @@ export interface Product {
   _id: string;
   name: string;
   slug: string;
-  sku: string;
+  sku?: string;
   category: Category | string; // Can be populated or just ID
   subcategory?: string;
   brand: Brand | string;       // Can be populated or just ID

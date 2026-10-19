@@ -164,8 +164,8 @@ export default function ContactPage() {
 
                 <div className="flex items-center space-x-4 border-t border-slate-100 pt-4">
                   <Phone className="h-4 w-4 text-accent" />
-                  <a href="tel:+919876543210" className="hover:text-primary hover:underline">
-                    +91 98765 43210
+                  <a href="tel:+917016722531" className="hover:text-primary hover:underline">
+                    +91 70167 22531
                   </a>
                 </div>
 

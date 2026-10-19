@@ -215,9 +215,6 @@ export default function ProductDetailsPage() {
                   <h1 className="text-3xl font-extrabold text-primary luxury-heading mt-1">
                     {product.name}
                   </h1>
-                  <span className="text-xs text-slate-400 font-mono mt-1 block">
-                    SKU Code: {product.sku}
-                  </span>
                 </div>
                 <div>
                   {getStockBadge(product.availability, product.stockQuantity)}
@@ -394,7 +391,6 @@ export default function ProductDetailsPage() {
                         <h3 className="text-xs font-bold text-primary group-hover:text-secondary transition-colors line-clamp-2">
                           <Link href={`/products/${p._id}`}>{p.name}</Link>
                         </h3>
-                        <p className="text-[10px] text-slate-400 font-mono mt-1">SKU: {p.sku}</p>
                       </div>
                       
                       <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">

@@ -92,7 +92,7 @@ function ProductsContent() {
         const q = search.toLowerCase();
         filtered = filtered.filter(p => 
           p.name.toLowerCase().includes(q) || 
-          p.sku.toLowerCase().includes(q) || 
+          (p.sku && p.sku.toLowerCase().includes(q)) || 
           p.description?.toLowerCase().includes(q)
         );
       }
@@ -220,7 +220,7 @@ function ProductsContent() {
                 <input
                   id="search-input"
                   type="text"
-                  placeholder="Name, SKU, tag..."
+                  placeholder="Name, category, tag..."
                   value={search}
                   onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                   className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-sm text-sm focus:outline-none focus:border-secondary text-slate-900"
@@ -377,7 +377,6 @@ function ProductsContent() {
                                 {p.name}
                               </Link>
                             </h3>
-                            <p className="text-[10px] text-slate-500 font-mono mt-1">SKU: {p.sku}</p>
                           </div>
 
                           <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">

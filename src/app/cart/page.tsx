@@ -87,7 +87,7 @@ export default function CartPage() {
 
       messageContent += `*Requested Parts (MOQs Apply):*\n`;
       cartItems.forEach((item, index) => {
-        messageContent += `${index + 1}. *${item.product.name}* [${item.product.sku}] × *${item.quantity}* pcs\n`;
+        messageContent += `${index + 1}. *${item.product.name}* × *${item.quantity}* pcs\n`;
       });
 
       if (form.message) {
@@ -221,7 +221,6 @@ export default function CartPage() {
                             {item.product.name}
                           </Link>
                         </h3>
-                        <p className="text-[10px] text-slate-500 font-mono mt-0.5">SKU: {item.product.sku}</p>
                         <p className="text-[10px] text-secondary font-bold uppercase tracking-wider mt-1">
                           {typeof item.product.brand === 'string' ? item.product.brand : item.product.brand?.name}
                         </p>

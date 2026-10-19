@@ -161,11 +161,6 @@ export default function Home() {
                   </Link>
                   <div className="w-full md:w-3/5 p-8 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-end gap-2 mb-2">
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          SKU: {product.sku}
-                        </span>
-                      </div>
                       <h3 className="text-xl font-bold text-primary mb-3 hover:text-accent transition-colors">
                         <Link href={`/products/${product._id}`}>
                           {product.name}

@@ -152,8 +152,15 @@ const createProduct = async (req, res) => {
       productData.seoKeywords = JSON.parse(productData.seoKeywords || '[]');
     }
 
+    // Auto-generate SKU if not supplied
+    if (!productData.sku) {
+      const nameCode = (productData.name || 'PROD').replace(/[^a-zA-Z0-9]/g, '').slice(0, 6).toUpperCase();
+      const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+      productData.sku = `DX-${nameCode}-${randomSuffix}`;
+    }
+
     // Required check
-    if (!productData.name || !productData.sku || !productData.category || !productData.brand) {
+    if (!productData.name || !productData.category || !productData.brand) {
       return res.status(400).json({ success: false, message: 'Please provide all required fields' });
     }
 
@@ -166,7 +173,9 @@ const createProduct = async (req, res) => {
 
     const existingSKU = await Product.findOne({ sku: productData.sku });
     if (existingSKU) {
-      return res.status(400).json({ success: false, message: 'Product SKU already exists' });
+      // Re-roll if collision
+      const randomSuffix = Math.floor(10000 + Math.random() * 90000);
+      productData.sku = `DX-PROD-${randomSuffix}`;
     }
 
     // Image Upload
